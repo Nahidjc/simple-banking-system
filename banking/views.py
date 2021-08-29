@@ -60,11 +60,15 @@ def transfer(request):
             print(updateSenderBalance, updateReceiverBalance)
 
             # transaction history
-            history = transferAmount()
-            history.sender = senderEmail
-            history.receiver = receiverEmail
-            history.transfer_amount = int(transferBalance)
+            history = transferAmount(
+                sender=senderEmail, receiver=receiverEmail, transfer_amount=int(transferBalance))
             history.save()
+            # print(history.__dict__)
+            # history = transferAmount()
+            # history.sender = senderEmail
+            # history.receiver = receiverEmail
+            # history.transfer_amount = int(transferBalance)
+            # history.save()
 
             # update balance
             registerUser.objects.filter(
@@ -73,3 +77,10 @@ def transfer(request):
                 email=receiverEmail).update(balance=updateReceiverBalance)
 
     return render(request, 'banking/home.html', )
+
+
+def transfer_history(request):
+    history = transferAmount.objects.all()
+    print("This is History of Transfer", history)
+
+    return render(request, 'transfer_history.html', context={'transfer_history': history})

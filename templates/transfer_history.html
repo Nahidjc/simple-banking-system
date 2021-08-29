@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title_block %}user details{% endblock %}
+
+{% block css_block %}
+
+
+
+{% endblock %}
+
+
+{% block body_block %}
+
+{% include "navbar.html"%}
+<div class="container mt-5">
+    <h1 class="text-center text-success p-2">Transfer Amount Transaction</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th scope="col">Date</th>
+                <th scope="col">Sender</th>
+                <th scope="col">Receiver</th>
+                <th scope="col">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for history in transfer_history %}
+            <tr>
+                <th scope="row">{{history.date}}</th>
+                <td>{{history.sender}}</td>
+                <td>{{history.receiver}}</td>
+                <td>${{history.transfer_amount}}</td>
+            </tr>
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

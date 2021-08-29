@@ -41,5 +41,35 @@ def transfer(request):
     # if request.method == 'GET':
     #     email = registerUser.objects.only('email')
     #     print(email)
+    if request.method == 'POST':
+        senderEmail = request.POST.get('senderEmail')
+        receiverEmail = request.POST.get('receiverEmail')
+        transferBalance = request.POST.get('transferBalance')
+        print(senderEmail, receiverEmail, transferBalance)
+        senderPreviousBalance = registerUser.objects.get(
+            email=senderEmail).balance
+        receiverPreviousBalance = registerUser.objects.get(
+            email=receiverEmail).balance
+        print(senderPreviousBalance, receiverPreviousBalance)
+
+        if int(senderPreviousBalance) >= int(transferBalance):
+            updateSenderBalance = int(
+                senderPreviousBalance)-int(transferBalance)
+            updateReceiverBalance = int(
+                receiverPreviousBalance)+int(transferBalance)
+            print(updateSenderBalance, updateReceiverBalance)
+
+            # transaction history
+            history = transferAmount()
+            history.sender = senderEmail
+            history.receiver = receiverEmail
+            history.transfer_amount = int(transferBalance)
+            history.save()
+
+            # update balance
+            registerUser.objects.filter(
+                email=senderEmail).update(balance=updateSenderBalance)
+            registerUser.objects.filter(
+                email=receiverEmail).update(balance=updateReceiverBalance)
 
     return render(request, 'banking/home.html', )

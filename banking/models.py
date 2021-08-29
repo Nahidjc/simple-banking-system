@@ -17,6 +17,7 @@ class transferAmount(models.Model):
     sender = models.EmailField()
     receiver = models.EmailField()
     transfer_amount = models.IntegerField()
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.sender + self.receiver

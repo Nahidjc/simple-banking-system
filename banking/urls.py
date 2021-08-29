@@ -5,5 +5,7 @@ app_name = 'banking'
 urlpatterns = [
 
     path('', views.home, name='home'),
-    path('register/', views.registerAccount, name='register',)
+    path('register/', views.registerAccount, name='register',),
+    path('user-details/', views.user_details, name='user_details',),
+    path('transfer/', views.transfer, name="transfer"),
 ]

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title_block %}user details{% endblock %}
+
+{% block css_block %}
+
+
+
+{% endblock %}
+
+
+{% block body_block %}
+
+{% include "navbar.html"%}
+<div class="container mt-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <th scope="row">1</th>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.balance}}$</td>
+            </tr>
+            {% endfor %}
+
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

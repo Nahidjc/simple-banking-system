@@ -37,6 +37,7 @@
 
         a {
             text-decoration: none;
+            color: black;
         }
     </style>
 
@@ -57,12 +58,17 @@
             <ul class="navbar-nav m-auto">
 
                 <li class="nav-item">
-                    <h5 class="text-dark">HOME</h5>
+
+                    <h5 class="text-dark">
+                        <a href="{% url 'banking:home'  %}">HOME</a>
+                    </h5>
                 </li>
 
 
                 <li class="nav-item">
-                    <h5 class="text-dark">HISTORY</h5>
+                    <h5 class="text-dark">
+                        <a href="{% url 'banking:user_details'  %}">BANK USER</a>
+                    </h5>
                 </li>
 
                 <li class="nav-item">

@@ -7,9 +7,10 @@ from .models import registerUser, transferAmount
 
 def home(request):
     if request.method == 'GET':
-        print("paichi")
+        emails = registerUser.objects.only('email')
+        print(emails)
 
-    return render(request, 'banking/home.html')
+    return render(request, 'banking/home.html', context={'emails': emails})
 
 
 def registerAccount(request):
@@ -28,3 +29,17 @@ def registerAccount(request):
             user.save()
             print(user.name, user.email)
     return render(request, 'banking/register.html')
+
+
+def user_details(request):
+    users = registerUser.objects.all()
+    print(users)
+    return render(request, 'banking/user_details.html', context={'users': users})
+
+
+def transfer(request):
+    # if request.method == 'GET':
+    #     email = registerUser.objects.only('email')
+    #     print(email)
+
+    return render(request, 'banking/home.html', )

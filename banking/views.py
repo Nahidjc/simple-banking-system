@@ -5,5 +5,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 
 def home(request):
+    if request.method == 'GET':
+        print("paichi")
 
     return render(request, 'banking/home.html')

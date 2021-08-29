@@ -9,7 +9,34 @@
 {% block body_block %}
 
 {% include "navbar.html"%}
-<h1>This is Nahid Hasan</h1>
-<h2>Well Come to My Website</h2>
+
+<section class="welcome  p-2" style="background-color: #EAF0F1;">
+    <div class="row">
+        <div class="col-md-6 text-center my-auto">
+            <h2>Welcome to</h2>
+            <h1 class="fw-bold" style="color:#317E2E;">BANGLADESH BANK</h1>
+        </div>
+        <div class="col-md-6">
+
+            <img class="img-fluid" src="/media/bank.jpg">
+        </div>
+    </div>
+</section>
+
+<section class="main text-center py-5">
+    <u>
+        <h1 class="fw-bold" style="">CHOOSE AN OPTION</h1>
+    </u>
+
+    <div class="transfer my-5">
+        <a href="#"> <button type="button" class="btn btn-outline-success">Money Transfer</button></a>
+
+    </div>
+
+    <div class="transfer my-5">
+        <a href="#"> <button type="button" class="btn btn-outline-success">View Transfer History</button></a>
+
+    </div>
+</section>
 
 {% endblock %}

@@ -11,3 +11,12 @@ class registerUser(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class transferAmount(models.Model):
+    sender = models.EmailField()
+    receiver = models.EmailField()
+    transfer_amount = models.IntegerField()
+
+    def __str__(self):
+        return self.sender + self.receiver

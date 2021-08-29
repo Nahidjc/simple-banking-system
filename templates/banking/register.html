@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title_block %}Registration{% endblock %}
+
+{% block css_block %}
+
+<style>
+    img {
+        padding-top: 50px;
+        width: 90%;
+    }
+
+    .container {
+        margin-top: 45px;
+    }
+
+    .form-bg {
+        background-color: rgb(156, 243, 236);
+    }
+
+    form {
+
+        padding: 35px;
+        border-color: white;
+        border-width: 8px;
+        border-style: double;
+    }
+
+    .form-group {
+        padding-top: 10px;
+    }
+
+    label {
+        font-weight: bold;
+        padding-bottom: 5px;
+    }
+</style>
+
+{% endblock %}
+
+
+{% block body_block %}
+
+{% include "navbar.html"%}
+
+<div class="container ">
+    <div class="row ">
+
+
+        <div class="col-md-6 mx-auto p-5 form-bg  ">
+
+            <form id="f" method="POST" action="">
+                {% csrf_token %}
+                <h1><b>Register Here!</b></h1>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Account Opening Amount:</label>
+                    <input type="number" class="form-control" id="balance" name="balance"
+                        placeholder="Enter Balance Amount">
+                </div>
+
+
+
+                <br>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+
+
+
+        <!-- <div class="col-sm-6">
+            <img src="{%static 'images/registration.svg'%}" alt="">
+        </div> -->
+
+
+    </div>
+</div>
+
+{% endblock %}
